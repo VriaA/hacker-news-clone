@@ -119,6 +119,15 @@ nav ul, .story-info,
     margin-bottom: 10px;
 }
 
+/*================= PAGE LOADER =================*/
+.loader {
+    position: fixed;
+    inset: 0;
+    display: none;
+    margin: auto;
+    width: 50px;
+}
+
 /*================= WRAPPER =================*/
 .wrapper {
     min-height: 100vh;
