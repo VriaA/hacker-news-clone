@@ -1,0 +1,423 @@
+
+/*================= GENERAL STYLES =================*/
+
+html {
+    scroll-behavior: smooth;
+}
+
+*, h1, h2, h3, p, ::after, ::before, a {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family:  Verdana, Geneva, sans-serif;
+    text-decoration: none;
+    color: #001;
+}
+
+.active {
+    color: #fff;
+}
+
+pre { 
+    word-break: break-all; 
+    word-wrap: break-word;
+    white-space: pre;
+    white-space: -moz-pre-wrap;
+    white-space: pre-wrap;
+    white-space: pre\9;
+}
+
+code {
+    font-family: monospace;
+}
+
+.hidden {
+    display: none;
+}
+
+/*================= REPEATED STYLES =================*/
+
+body, footer {
+    display: flex;
+    justify-content: center;
+}
+
+.wrapper, footer {
+    width: 100%;
+}
+
+.logo-cntr, h1,
+.add-comment-btn, .clickable:hover {
+    cursor: pointer;
+}
+
+.clickable:hover {
+    text-decoration: underline;
+}
+
+.grey-color, main a:visited,
+.story-content-comments , .story-content-comments *:not(a) {
+    color: #888;
+}
+
+.story, .story-link,
+.comment-info, .add-comment-form-message,
+.story-content-comments , .story-content-comments *, footer {
+    font-size: .7rem;
+}
+
+.story-headline, .story-content-comments , .story-content-comments *, .no-result  {
+    font-size: .9rem;
+    font-weight: 400;
+    margin: 0 0 2px;
+}
+
+.wrapper, .comment-info, 
+nav ul li a {
+    position: relative;
+}
+
+.logo-cntr, nav ul,
+nav ul li a, .favorite, 
+.story, .story-info,
+.comment-info, .index-cntr,
+.comment, .btn-and-msg-cntr {
+    display: flex;
+}
+
+header, .logo-cntr,  
+.btn-and-msg-cntr, nav ul li a,
+.favorite {
+    align-items: center;
+}
+
+.story, .index-cntr {
+    align-items: baseline;
+}
+
+nav ul, .story-info, 
+.comment-info, .btn-and-msg-cntr {
+    flex-wrap: wrap;
+}
+
+.story-info, 
+.comment-info, .btn-and-msg-cntr {
+    gap: 5px;
+}
+
+.comments::before, .favorite::before, 
+.comment-time-ago::before,
+.comment-nav, .count-cntr {
+    content: '';
+    display: inline-block;
+    height: 70%;
+    padding-left: 5px;
+    border-left: 1px solid #999;
+}
+
+.comment-content p, .comment-content pre {
+    margin-bottom: 10px;
+}
+
+/*================= WRAPPER =================*/
+.wrapper {
+    min-height: 100vh;
+    background: #F6F6EF;
+}
+
+/*================= HEADER =================*/
+
+header {
+    display: grid;
+    grid-template-columns: 1.5em repeat(4, 1fr);
+    grid-template-rows: 1fr;
+    grid-template-areas: "logo heading heading heading heading"
+                         "logo nav nav nav nav";
+    margin-bottom: 13px;
+    padding: 5px 2px;
+    font-size: 1.2em;
+    background-color: #FF6600;
+}
+
+.logo-cntr {
+    grid-area: logo;
+}
+
+.logo {
+    display: inline-block;
+    width: 70%;
+    border: 1px solid #fff;
+}
+
+h1 {
+    grid-area: heading;
+    font: 600 .79em/1  Verdana, Geneva, sans-serif;
+    margin-bottom: 3px;
+}
+
+nav {
+    grid-area: nav;
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+nav ul li a {
+    height: 100%;
+    font-size: .75rem;
+}
+
+nav ul li:not(:last-of-type) a::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 65%;
+    margin: 0 7px;
+    border-right: 1px solid #222;
+}
+
+/*================= STORIES =================*/
+.view {
+    padding: 0 3% 80px 0;
+    transition-duration: .5s;
+}
+
+.story {
+    gap: 4px;
+    padding: 0 0 10px;
+}
+
+.index-cntr {
+    flex: none;
+    justify-content: flex-end;
+    width: 38px;
+    font-size: .95rem;
+}
+
+.triangle {
+    width: 13px;
+}
+
+.story-item-index {
+    width: fit-content;
+    margin-left: 3%;
+}
+
+.story-info {
+    font-size: .72rem;
+    font-weight: 200;
+}
+
+.story-domain {
+    font-size: .75em;
+}
+
+.favorite {
+    justify-content: flex-start;
+}
+
+.story-content-comments , .story-content-comments * {
+    font-size: .8rem;
+}
+
+.no-result {
+    color: #555;
+    text-align: center;
+}
+
+/*================= JOBS =================*/
+.job {
+    margin: 0 0 0 3%;
+}
+
+/*================= COMMENTS =================*/
+
+.comment {
+    flex-direction: column;
+    gap: 3px;
+    margin: 15px 0 0 5%;
+    font-size: .84rem;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+.comment-level-1 {
+    margin-left: 10%;
+}
+
+.triangle-comment {
+    position: absolute;
+    left: -18px;
+    top: -2px;
+}
+
+.story-content-comments {
+    padding-left: 42px;
+}
+
+.story-content-comments , .story-content-comments * {
+    margin-bottom: 13px;
+    word-wrap: break-word;
+}
+
+/*================= COMMENT FORM =================*/
+.add-comment-form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr, 30px;
+    grid-template-areas: "textarea textarea"
+                         "btn-and-msg-cntr btn-and-msg-cntr";
+    gap: 20px;
+    padding: 10px 20px 40px 42px;
+}
+
+.comment-textarea {
+    grid-area: textarea;
+    padding: 0 0 0 10px;
+    max-width: 100%;
+    height: 160px;
+}
+
+.comment-textarea, .add-comment-btn {
+    justify-self: self-start;
+    font-family: monospace;
+}
+
+.btn-and-msg-cntr {
+    grid-area: btn-and-msg-cntr;
+}
+
+.add-comment-btn {
+    font-size: 1rem;
+    padding: 2px 8px;
+}
+
+.error, .add-comment-form-message {
+    color: #FF0000;
+}
+
+/*================= FOOTER =================*/
+
+footer {
+    position: absolute;
+    bottom: 0;
+    padding: 20px 0;
+    border-top: 2px solid #FF6600;
+}
+
+
+/*================= MEDIA QUERIES =================*/
+@media screen and (min-width: 768px) {
+    
+/*================= BODY =================*/
+    body {
+        padding-top: 8px;
+    }
+
+/*================= WRAPPER =================*/
+    .wrapper {
+        max-width: 98%;
+    }
+
+/*================= HEADER =================*/
+    header {
+        grid-template-columns: 1.15em auto repeat(3, 1fr);
+        grid-template-areas: "logo heading nav nav nav";
+        padding: 2px;
+    }
+
+    .logo {
+        object-fit: cover;
+        object-position: center;
+        width: 19px;
+        height: 19px;
+    }
+
+    h1 {
+        grid-area: heading;
+        font: 700 .7em/1  Verdana, Geneva, sans-serif;
+        margin-bottom: 0;
+    }
+
+    nav {
+        margin-left: 10px;
+    }
+
+    nav ul li a {
+        font: 400 .7em/1  Verdana, Geneva, sans-serif;
+        align-items: flex-end;
+    }
+    
+    nav ul li:not(:last-of-type) a::after {
+        height: 85%;
+    }
+
+/*================= STORIES =================*/
+    .view {
+        padding: 0 1% 80px 0;
+    }
+    
+    .story-headline, .no-result {
+        font-size: .8rem;
+    }
+
+    .story-domain {
+        font-size: .7rem;
+    }
+
+    .story-info {
+        font-size: .65rem;
+    }
+
+    .triangle {
+        width: 10px;
+    }
+
+    .index-cntr {
+        width: 30px;
+        font-size: .83rem;
+    }
+
+    .story-item-index {
+        margin-left: 1%;
+    }
+
+    .story-content-comments {
+        padding-left: 35px;
+    }
+
+    .job {
+        margin: 0 0 0 1%;
+    }
+
+/*================= COMMENTS =================*/
+    .comment {
+        font-size: .75rem;
+        margin-left: 3%;
+    }
+
+    .triangle-comment {
+        left: -14px;
+        top: 0;
+    }
+
+    .add-comment-btn {
+        font-size: .8rem;
+    }
+
+    .add-comment-form  {
+        gap: 15px;
+    }
+
+    .comment-textarea {
+        height: fit-content;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+/*================= WRAPPER =================*/
+    .wrapper {
+        max-width: 84%;
+    }
+}
