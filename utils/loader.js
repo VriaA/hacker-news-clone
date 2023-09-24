@@ -1,7 +1,9 @@
 const loader = document.getElementById('loader')
 
-function renderLoader() {
+function renderLoader(isFavoriteClicked) {
+    if(!isFavoriteClicked) {
         loader.style.display = 'block'
+    }
 }
 
 function hideLoader() {

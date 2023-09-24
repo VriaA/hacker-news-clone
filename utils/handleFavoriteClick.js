@@ -5,7 +5,8 @@ import Comments from "../pages/item.js"
 /*TOGGLES STORIES IN AND OUT OF FAVORITES USING THE STORE WHEN THE FAVORITE BUTTON IS CLICKED,
 SAVES THE FAVORITES TO LOCAL STORAGE,
 RERENDERS THE PAGE CONTENT*/
-export default function handleFavoriteClick(path){
+export default function handleFavoriteClick(path, isFavoriteClicked){
+                isFavoriteClicked = true
                 const isCommentPage = path === '/item'
                 const favoriteButtons = document.querySelectorAll('.favorite')
                 favoriteButtons.forEach(button=> {
@@ -15,7 +16,7 @@ export default function handleFavoriteClick(path){
                 
                             const favoriteStories = store.getState()
                             localStorage.setItem('favoriteStories', JSON.stringify(favoriteStories))
-                            isCommentPage ? await Comments() : await Stories(path)
+                            isCommentPage ? await Comments(isFavoriteClicked) : await Stories(path, isFavoriteClicked)
                     })
                 })
             }

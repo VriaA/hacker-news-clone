@@ -8,8 +8,8 @@ import view from "../utils/view.js"
 import store  from "../store.js";
 
 //RENDERS PAGE CONTENT WHEN CALLED.
-async function Stories(path) {
-    renderLoader()
+async function Stories(path, isFavoriteClicked = false) {
+    renderLoader(isFavoriteClicked)
         await render(path)
     hideLoader()
 }
