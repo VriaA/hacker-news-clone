@@ -8,11 +8,10 @@ import Story from "../components/story.js";
 import store from "../store.js";
 
 //RENDERS THE SELECTED STORY, ITS CONTENT, A FORM FOR POSTING COMMENTS AND THE STORY COMMENTS WHEN CALLED
-export default async function Comments(isFavoriteClicked = false) {
+export default async function Comments(path, isFavoriteClicked = false) {
     renderLoader(isFavoriteClicked)
-    
+
     const { favorites } = store.getState()
-    const path = '/item'
     window.scrollTo(0, 0)
 
     let hasError = false
