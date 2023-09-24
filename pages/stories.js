@@ -1,4 +1,4 @@
-import loader from "../utils/loader.js"
+import {renderLoader, hideLoader} from "../utils/loader.js"
 import Story from "../components/story.js"
 import Job from "../components/job.js"
 import baseUrl from "../utils/baseUrl.js"
@@ -9,11 +9,9 @@ import store  from "../store.js";
 
 //RENDERS PAGE CONTENT WHEN CALLED.
 async function Stories(path) {
-    loader.style.display = 'block'
+    renderLoader()
         await render(path)
-    setTimeout(_=> {
-        loader.style.display = 'none'
-    }, 1050)
+    hideLoader()
 }
 
 //RENDERS STORIES IF THERE IS NO ERROR.
