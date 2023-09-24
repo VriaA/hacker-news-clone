@@ -28,8 +28,8 @@ export default function Story(story, path) {
                         ${points ? `<p class="points grey-color">${storyPoints}</p>` : ''}
                         ${user ? `<p class="author grey-color"> by ${user}</p>` : ''}
                         <p class="time-ago grey-color">${time_ago}</p>
-                        ${!isJob ? `<a class="comments grey-color clickable" href="#/item?id=${id}">${comments_count ? commentCount : `discuss`}</a>` : ''}
                         ${ showFavorite ? `<p class="favorite grey-color clickable" data-story='${JSON.stringify(getFavoriteObj(story))}' >${isFavorite ? 'remove from favorites' : 'favorite'}</p>` : ''}
+                        ${!isJob ? `<a class="comments grey-color clickable" href="#/item?id=${id}">${comments_count ? commentCount : `discuss`}</a>` : ''}
                     </div>
                 </div>
             </section>`
