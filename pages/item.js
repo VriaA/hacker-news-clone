@@ -1,6 +1,7 @@
 import baseUrl from "../utils/baseUrl.js";
-import isInFavorites from "../utils/isInFavorites.js";
 import handleFavoriteClick from "../utils/handleFavoriteClick.js";
+import isInFavorites from "../utils/isInFavorites.js";
+import {renderLoader, hideLoader} from "../utils/loader.js"
 import view from "../utils/view.js"
 import Comment from "../components/comment.js";
 import Story from "../components/story.js";
@@ -8,7 +9,7 @@ import store from "../store.js";
 
 //RENDERS THE SELECTED STORY, ITS CONTENT, A FORM FOR POSTING COMMENTS AND THE STORY COMMENTS WHEN CALLED
 export default async function Comments() {
-   
+   renderLoader()
     const { favorites } = store.getState()
     const path = '/item'
     window.scrollTo(0, 0)
@@ -45,7 +46,7 @@ export default async function Comments() {
         if(hasError) {
             view.innerHTML = `<P class="no-result error">Error fetching story</P>`
         }
-
+    hideLoader()
 }
 
 //GETS COMMENTS FOR A STORY WITH ITS ID IN THE URL USING AN API
