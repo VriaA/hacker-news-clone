@@ -20,7 +20,6 @@ export default async function Comments() {
             const commentsData = await getComments()
             const hasComments =  commentsData.comments.length > 0
             const { comments, content} = commentsData
-            console.log(content)
 
             view.innerHTML =    `${Story({...commentsData, isFavorite: isInFavorites(favorites, commentsData)}, path)}
                                     <div class="story-content-comments">
